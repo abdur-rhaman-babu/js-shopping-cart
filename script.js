@@ -8,15 +8,16 @@ const updateCaseNumber = (number,isAdd) =>{
     }
 }
 
-// updated Mobile Number
-const updateMobileNumber = (number,isAdd) =>{
-    const mobileNumber = document.getElementById(number)
-    if ( isAdd === true && mobileNumber.value < 5){
-        mobileNumber.value = parseInt(mobileNumber.value) + 1;
-    }else if ( isAdd === false && mobileNumber.value > 0){
-        mobileNumber.value = parseInt(mobileNumber.value) - 1;
-    }
-}
+
+// // updated Mobile Number
+// const updateMobileNumber = (number,isAdd) =>{
+//     const mobileNumber = document.getElementById(number)
+//     if ( isAdd === true && mobileNumber.value < 5){
+//         mobileNumber.value = parseInt(mobileNumber.value) + 1;
+//     }else if ( isAdd === false && mobileNumber.value > 0){
+//         mobileNumber.value = parseInt(mobileNumber.value) - 1;
+//     }
+// }
 
 
 // case increase
@@ -31,11 +32,11 @@ document.getElementById('caseDecrease-btn').addEventListener('click', ()=>{
 
 // mobile increase
 document.getElementById('mobileIncrese-btn').addEventListener('click', ()=>{
-         updateMobileNumber('mobile-number', true)
+        updateCaseNumber('mobile-number', true)
 })
 
 // mobile decrease
 document.getElementById('mobileDecrese-btn').addEventListener('click', ()=>{
-         updateMobileNumber('mobile-number', false)
+        updateCaseNumber('mobile-number', false)
 })
 
