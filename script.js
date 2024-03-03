@@ -2,6 +2,8 @@
 const subTotal = document.getElementById('sub-total')
 const totalCase = document.getElementById('total-case')
 const totalMobile = document.getElementById('total-mobile')
+const tax = document.getElementById('tax-amount')
+const totalAmount = document.getElementById('total')
 
 // get input value
 const getInputValue = (product) =>{
@@ -15,10 +17,11 @@ const getSubTotal = () =>{
       const caseTotal = getInputValue('mobile') * 1200;
       const phoneTotal = getInputValue('case') * 60;
       const productTotal = caseTotal + phoneTotal;
-
       subTotal.innerText = productTotal;
+      const totalTax = productTotal / 10;
+      tax.innerText = totalTax;
+      totalAmount.innerText = productTotal + totalTax;;
 }
-
 
 // updated case Number
 const updateProductNumber = (number,isAdd,products,price) =>{
@@ -28,6 +31,7 @@ const updateProductNumber = (number,isAdd,products,price) =>{
     }else if ( isAdd === false && caseNumber.value > 0){
         caseNumber.value = parseInt(caseNumber.value) - 1;
     }
+
     products.innerText = caseNumber.value * price;
     getSubTotal()
 }
