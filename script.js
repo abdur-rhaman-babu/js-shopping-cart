@@ -1,42 +1,35 @@
+const totalCase = document.getElementById('total-case')
+const totalMobile = document.getElementById('total-mobile')
 // updated case Number
-const updateCaseNumber = (number,isAdd) =>{
+const updateProductNumber = (number,isAdd,products,price) =>{
     const caseNumber = document.getElementById(number)
+   
     if ( isAdd === true && caseNumber.value < 5){
         caseNumber.value = parseInt(caseNumber.value) + 1;
     }else if ( isAdd === false && caseNumber.value > 0){
         caseNumber.value = parseInt(caseNumber.value) - 1;
     }
+
+    products.innerText = caseNumber.value * price;
 }
-
-
-// // updated Mobile Number
-// const updateMobileNumber = (number,isAdd) =>{
-//     const mobileNumber = document.getElementById(number)
-//     if ( isAdd === true && mobileNumber.value < 5){
-//         mobileNumber.value = parseInt(mobileNumber.value) + 1;
-//     }else if ( isAdd === false && mobileNumber.value > 0){
-//         mobileNumber.value = parseInt(mobileNumber.value) - 1;
-//     }
-// }
-
 
 // case increase
 document.getElementById('caseIncrease-btn').addEventListener('click', ()=>{
-         updateCaseNumber('case-number', true)
+         updateProductNumber('case-number', true, totalCase, 59)
 })
 
 // case decrease
 document.getElementById('caseDecrease-btn').addEventListener('click', ()=>{
-         updateCaseNumber('case-number',false)
+         updateProductNumber('case-number',false, totalCase, 59)
 })
 
 // mobile increase
 document.getElementById('mobileIncrese-btn').addEventListener('click', ()=>{
-        updateCaseNumber('mobile-number', true)
+        updateProductNumber('mobile-number', true, totalMobile, 1219)
 })
 
 // mobile decrease
 document.getElementById('mobileDecrese-btn').addEventListener('click', ()=>{
-        updateCaseNumber('mobile-number', false)
+        updateProductNumber('mobile-number', false, totalMobile, 1219)
 })
 
