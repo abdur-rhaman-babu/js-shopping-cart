@@ -1,13 +1,3 @@
-// find element of case
-const caseIncreaseBtn = document.getElementById('caseIncrease-btn')
-const caseDecreaseBtn = document.getElementById('caseDecrease-btn')
-
-
-// find element of mobile
-const mobileIncreaseBtn = document.getElementById('mobileIncrese-btn')
-const mobileDecreaseBtn = document.getElementById('mobileDecrese-btn')
-const mobileNumber = document.getElementById('mobile-number')
-
 // updated case Number
 const updateCaseNumber = (number,isAdd) =>{
     const caseNumber = document.getElementById(number)
@@ -17,27 +7,35 @@ const updateCaseNumber = (number,isAdd) =>{
         caseNumber.value = parseInt(caseNumber.value) - 1;
     }
 }
+
+// updated Mobile Number
+const updateMobileNumber = (number,isAdd) =>{
+    const mobileNumber = document.getElementById(number)
+    if ( isAdd === true && mobileNumber.value < 5){
+        mobileNumber.value = parseInt(mobileNumber.value) + 1;
+    }else if ( isAdd === false && mobileNumber.value > 0){
+        mobileNumber.value = parseInt(mobileNumber.value) - 1;
+    }
+}
+
+
 // case increase
-caseIncreaseBtn.addEventListener('click', ()=>{
-        updateCaseNumber('case-number', true)
+document.getElementById('caseIncrease-btn').addEventListener('click', ()=>{
+         updateCaseNumber('case-number', true)
 })
 
 // case decrease
-caseDecreaseBtn.addEventListener('click', ()=>{
-    updateCaseNumber('case-number',false)
+document.getElementById('caseDecrease-btn').addEventListener('click', ()=>{
+         updateCaseNumber('case-number',false)
 })
 
 // mobile increase
-mobileIncreaseBtn.addEventListener('click', ()=>{
-    if( mobileNumber.value < 5 ){
-        mobileNumber.value = parseInt(mobileNumber.value) + 1;
-    }
+document.getElementById('mobileIncrese-btn').addEventListener('click', ()=>{
+         updateMobileNumber('mobile-number', true)
 })
 
 // mobile decrease
-mobileDecreaseBtn.addEventListener('click', ()=>{
-    if (mobileNumber.value > 0 ){
-        mobileNumber.value = parseInt(mobileNumber.value) - 1;
-    }
+document.getElementById('mobileDecrese-btn').addEventListener('click', ()=>{
+         updateMobileNumber('mobile-number', false)
 })
 
